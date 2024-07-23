@@ -48,5 +48,24 @@ todayBtn.id = "todayButton";
 todayBtn.textContent = "Go to Today";
 containerCalendar.appendChild(todayBtn);
 
+const today = new Date();
+let currentYear = today.getFullYear();
+let currentMonth = today.getMonth();
+
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
 
 
