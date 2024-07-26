@@ -67,5 +67,8 @@ const months = [
   "December",
 ];
 
-
+function generateCalendar(year, month){
+  const fisrtDay = new Date(year, month, 1).getDay()
+  const lastDay = new Date(year, month + 1, 0).getDate()
+}
 
