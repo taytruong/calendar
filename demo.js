@@ -52,6 +52,7 @@ const today = new Date();
 let currentYear = today.getFullYear();
 let currentMonth = today.getMonth();
 
+
 const months = [
   "January",
   "February",
@@ -67,8 +68,88 @@ const months = [
   "December",
 ];
 
-function generateCalendar(year, month){
-  const fisrtDay = new Date(year, month, 1).getDay()
-  const lastDay = new Date(year, month + 1, 0).getDate()
+function createCalendar(year, month) {
+  const firstDay = (new Date(year, month, 1).getDay() + 1) % 7 || 7;
+  const lastDay = new Date(year, month + 1, 0).getDate();
+
+  while (days.firstChild) {
+    days.removeChild(days.firstChild);
+  }
+
+  for (let i = firstDay - 1; i > 0; i--) {
+    const empty = document.createElement("div");
+    empty.classList.add("empty");
+    days.appendChild(empty);
+  }
+
+  for (let i = 1; i <= lastDay; i++) {
+    const day = document.createElement("div");
+    day.appendChild(document.createTextNode(i));
+    day.dataset.day = i;
+
+    if (
+      i === today.getDate() &&
+      month === today.getMonth() &&
+      year === today.getFullYear()
+    ) {
+      day.classList.add("today");
+    }
+
+    days.appendChild(day);
+  }
+  updateMonthAndDate(year, month);
+  daySelect();
 }
 
+function updateMonthAndDate(year, month) {
+  while (h1.firstChild) {
+    h1.removeChild(h1.firstChild);
+  }
+
+  while (p.firstChild) {
+    p.removeChild(p.firstChild);
+  }
+
+  h1.appendChild(document.createTextNode(months[month]));
+  const fullDateText = new Date(year, month, 1).getFullYear();
+  p.appendChild(document.createTextNode(fullDateText));
+}
+
+function daySelect() {
+  document.querySelectorAll(".days div").forEach((day) => {
+    if (!day.classList.contains("empty")) {
+      day.addEventListener("click", () => {
+        document
+          .querySelectorAll(".days div")
+          .forEach((day) => day.classList.remove("selected"));
+        day.classList.add("selected");
+      });
+    }
+  });
+} 
+
+previousBtn.addEventListener("click", () => {
+  currentMonth--;
+  if (currentMonth < 0) {
+    currentMonth = 11;
+    currentYear--;
+  }
+  createCalendar(currentYear, currentMonth);
+});
+
+nextBtn.addEventListener("click", () => {
+  currentMonth++;
+  if (currentMonth > 11) {
+    currentMonth = 0;
+    currentYear++;
+  }
+  createCalendar(currentYear, currentMonth);
+});
+
+todayBtn.addEventListener("click", () => {
+  currentYear = today.getFullYear();
+  currentMonth = today.getMonth();
+  createCalendar(currentYear, currentMonth);
+});
+
+createCalendar(currentYear, currentMonth);

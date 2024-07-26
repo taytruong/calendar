@@ -33,6 +33,7 @@
   align-items: center;
   text-align: center;
   border-radius: 10px 10px 0 0;
+  color: black;
 }
 
 .month h1 {
@@ -88,7 +89,8 @@
 }
 
 .selected {
-  background-color: #add8e6;
+  background-color: #ade6d7;
+  color: black;
 }
 
 button {
