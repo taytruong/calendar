@@ -19,8 +19,8 @@
 .calendar {
   background-color: white;
   color: white;
-  width: 800px;
-  height: 520px;
+  min-width: 800px;
+  min-height: 520px;
   border-radius: 20px;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
 }
@@ -112,7 +112,7 @@ button {
   border-radius: 8px;
   border: none;
   font-size: 20px;
-  font-weight: 5  00;
+  font-weight: 5 00;
 }
 
 #prevMonth,
