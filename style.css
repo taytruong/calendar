@@ -3,6 +3,7 @@
   padding: 0;
   font-family: "DM Sans", "san-serif";
   box-sizing: border-box;
+  color: black;
 }
 
 .container {
@@ -16,7 +17,7 @@
 }
 
 .calendar {
-  background-color: black;
+  background-color: white;
   color: white;
   width: 800px;
   height: 520px;
@@ -27,23 +28,22 @@
 .month {
   width: 100%;
   height: 120px;
-  background-color: lightseagreen;
+  background-color: rgb(48, 212, 241);
   display: flex;
   justify-content: space-between;
   align-items: center;
   text-align: center;
   border-radius: 10px 10px 0 0;
-  color: black;
 }
 
 .month h1 {
-  font-size: 30px;
+  font-size: 50px;
   font-weight: bold;
   text-transform: uppercase;
 }
 
 .month p {
-  font-size: 16px;
+  font-size: 20px;
 }
 
 .weekdays {
@@ -82,13 +82,13 @@
 }
 
 .days div:hover:not(.empty) {
-  border: 2px solid white;
+  border: 1px solid black;
   cursor: pointer;
   border-radius: 8px;
 }
 
 .today {
-  background-color: lightseagreen;
+  background-color: rgb(48, 212, 241);
   border-radius: 8px;
 }
 
@@ -103,6 +103,7 @@ button {
   padding: 5px 10px;
   margin: 5px;
   cursor: pointer;
+  background-color: rgb(48, 212, 241);
 }
 
 #prevMonth,
@@ -110,6 +111,12 @@ button {
 #todayButton {
   border-radius: 8px;
   border: none;
-  padding: 10px;
-  background-color: #70bddb;
+  font-size: 20px;
+  font-weight: 5  00;
+}
+
+#prevMonth,
+#nextMonth {
+  font-size: 30px;
+  font-weight: bold;
 }

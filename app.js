@@ -10,7 +10,7 @@ calendar.appendChild(month);
 
 const previousBtn = document.createElement("button");
 previousBtn.id = "prevMonth";
-previousBtn.textContent = "Previous";
+previousBtn.textContent = "<";
 month.appendChild(previousBtn);
 
 const date = document.createElement("div");
@@ -25,7 +25,7 @@ date.appendChild(p);
 
 const nextBtn = document.createElement("button");
 nextBtn.id = "nextMonth";
-nextBtn.textContent = "Next";
+nextBtn.textContent = ">";
 month.appendChild(nextBtn);
 
 const weekdays = document.createElement("div");
